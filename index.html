@@ -75,22 +75,25 @@
 $(document).ready(function() {
 
   $(".number").on("click", function() {
+    // If we haven't picked an operator, we are editing the first number
     if($("#operator").text().length === 0) {
       $("#first-number").append(this.value);
     }
+    // Edit second number unless result has been calculated
     else if($("#result").text().length === 0){
       $("#second-number").append(this.value);
     }
   });
 
   $(".operator").on("click", function() {
-    if($("#second-number").text().length === 0 && $("#operator").text().length === 0) {
+    // Add operator if we haven't already
+    if($("#operator").text().length === 0) {
       $("#operator").text(this.textContent);
     }
   });
 
   $(".equal").on("click", function() {
-    if($("#result").text().length === 0) {
+    if($("#result").text().length === 0 && $("#second-number").text().length > 0) {
       if($("#operator").text() === "+") {
         $("#result").append(Number($("#first-number").text()) + Number($("#second-number").text()));
       }
