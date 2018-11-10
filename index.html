@@ -75,7 +75,6 @@
 $(document).ready(function() {
 
   $(".number").on("click", function() {
-    console.log(this);
     if($("#operator").text().length === 0) {
       $("#first-number").append(this.value);
     }
@@ -111,11 +110,10 @@ $(document).ready(function() {
   });
 
   $("#button-clear").on("click", function() {
-    $("#operator").text("");
-    $("#first-number").text("");
-    $("#second-number").text("");
-    $("#result").text("");
-    $("#operator").text("")
+    $("#first-number").empty();
+    $("#second-number").empty();
+    $("#operator").empty();
+    $("#result").empty();
   });
 
 });
